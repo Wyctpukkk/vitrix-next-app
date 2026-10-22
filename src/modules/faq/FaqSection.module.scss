@@ -1,0 +1,29 @@
+.section {
+  min-height: 80vh;
+  padding: 3rem 0;
+  scroll-margin-top: 6rem;
+}
+
+.content {
+  width: 70%;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.accordion {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+}

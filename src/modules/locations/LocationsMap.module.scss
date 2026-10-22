@@ -1,0 +1,59 @@
+@use "../../styles/variables" as *;
+
+.mapWrap {
+  --map-country-fill: color-mix(in srgb, var(--text-secondary) 18%, transparent);
+  --map-country-stroke: color-mix(in srgb, var(--card-border) 85%, transparent);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 24px var(--card-shadow);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+
+  @media (max-width: 960px) {
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.country {
+  fill: var(--map-country-fill);
+  stroke: var(--map-country-stroke);
+  stroke-width: 0.6;
+  outline: none;
+  transition: fill $transition-smooth;
+}
+
+.marker {
+  cursor: default;
+}
+
+.markerPulse {
+  fill: rgba($color-accent, 0.2);
+}
+
+.markerDot {
+  fill: $color-accent;
+  stroke: #fff;
+  stroke-width: 2;
+  transition: fill $transition-smooth;
+}
+
+.markerHighlighted {
+  .markerPulse {
+    fill: rgba($color-success, 0.28);
+  }
+
+  .markerDot {
+    fill: $color-success;
+  }
+}

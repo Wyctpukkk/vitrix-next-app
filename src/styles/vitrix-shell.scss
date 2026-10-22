@@ -1,0 +1,414 @@
+@use "variables" as *;
+@use "theme" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  transition:
+    background-color $transition-base,
+    color $transition-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.global-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(rgb(0, 0, 0) 0px, transparent 720px);
+    -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 0px, transparent 720px);
+
+    @include when-dark {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+    }
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $header-z-index;
+  padding: 1rem 0;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition:
+    background-color $transition-smooth,
+    border-color $transition-smooth,
+    box-shadow $transition-smooth,
+    backdrop-filter $transition-smooth;
+
+  &--scrolled {
+    backdrop-filter: blur(10px) saturate(180%);
+    background-color: var(--header-bg);
+    border-bottom-color: var(--header-border);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+
+    @include when-dark {
+      background-color: var(--header-bg);
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+
+    > a {
+      text-decoration: none;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+
+    @media (max-width: $breakpoint-md) {
+      order: 2;
+      flex: 0 0 auto;
+      justify-content: flex-end;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: flex-end;
+
+    @media (max-width: $breakpoint-md) {
+      order: 1;
+      margin-left: auto;
+    }
+  }
+
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all $transition-base;
+  color: var(--text-primary);
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    background: rgba(108, 99, 255, 0.1);
+    transform: scale(1.1);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 36px;
+    height: 36px;
+  }
+
+  &__icon {
+    position: absolute;
+    transition: all $transition-base;
+
+    &--sun {
+      opacity: 0;
+      transform: rotate(180deg) scale(0);
+
+      @include when-dark {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+    }
+
+    &--moon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+
+      @include when-dark {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0);
+      }
+    }
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(135deg, $color-accent, $color-accent-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav {
+  &__toggle {
+    display: none;
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: $header-z-index + 1;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: $color-accent;
+      border-radius: 3px;
+      transition: all $transition-smooth;
+    }
+  }
+
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-menu;
+  }
+
+  &__list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all $transition-smooth;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, $color-accent, $color-accent-light);
+      transition: all $transition-smooth;
+    }
+
+    &:hover {
+      color: $color-accent-light;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__close {
+    display: none;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__burger {
+      display: flex;
+    }
+
+    &__overlay {
+      display: block;
+    }
+
+    &__toggle:checked ~ &__overlay {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &__menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100vh;
+      width: 70%;
+      max-width: 300px;
+      background: var(--mobile-menu-bg);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      transition: right $transition-menu;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+      z-index: $header-z-index;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--card-border);
+    }
+
+    &__close {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      color: var(--mobile-menu-text);
+      transition: all $transition-smooth;
+
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      &:hover {
+        color: $color-accent-light;
+        transform: scale(1.1);
+      }
+    }
+
+    &__list {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &__link {
+      color: var(--mobile-menu-text);
+      font-size: 1.1rem;
+    }
+
+    &__toggle:checked ~ &__menu {
+      right: 0;
+    }
+
+    &__toggle:checked ~ &__burger span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    &__toggle:checked ~ &__burger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &__toggle:checked ~ &__burger span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  animation: float 20s infinite ease-in-out;
+  transition:
+    opacity $transition-base,
+    display $transition-base;
+
+  @include when-dark {
+    opacity: 0.15;
+    filter: blur(100px);
+  }
+
+  &--1 {
+    width: 400px;
+    height: 400px;
+    background: $color-accent;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  &--2 {
+    width: 500px;
+    height: 500px;
+    background: $color-accent-light;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 7s;
+  }
+
+  &--3 {
+    width: 300px;
+    height: 300px;
+    background: $color-success;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 14s;
+    transition: opacity 0.5s ease;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, 50px) scale(0.9);
+  }
+}
+
+.page-content {
+  padding-top: 5rem;
+  min-height: 100vh;
+}
