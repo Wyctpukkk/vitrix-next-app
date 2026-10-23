@@ -1,6 +1,6 @@
 services:
   web:
-    build: .
+    image: ghcr.io/wyctpukkk/vitrix-next-app:latest
     restart: unless-stopped
     ports:
       - "127.0.0.1:3000:3000"
