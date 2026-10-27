@@ -15,6 +15,28 @@
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  min-height: 1.2em;
+}
+
+.titleAnimated {
+  @media (prefers-reduced-motion: no-preference) {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0.08em;
+      height: 0.9em;
+      margin-left: 0.06em;
+      vertical-align: -0.06em;
+      background: currentColor;
+      animation: hero-title-cursor-blink 1s step-end infinite;
+    }
+  }
+}
+
+@keyframes hero-title-cursor-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .heroSubtitles {

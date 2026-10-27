@@ -4,6 +4,7 @@ import { FaqSection } from "@/modules/faq";
 import { LocationsSection } from "@/modules/locations";
 import { TariffsSection } from "@/modules/tariffs";
 import { HeroActions } from "./HeroActions";
+import { HeroTitle } from "./HeroTitle";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
     <main className="page-content">
       <div className="container">
         <section className={styles.hero}>
-          <h1 className={styles.title}>Интернет без блокировок</h1>
+          <HeroTitle />
           <ul className={styles.heroSubtitles}>
             {HERO_SUBTITLES.map((subtitle) => (
               <li key={subtitle}>{subtitle}</li>
