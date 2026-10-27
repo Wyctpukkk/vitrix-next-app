@@ -10,32 +10,62 @@
   padding: 2rem 0;
 }
 
-.title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  min-height: 1.2em;
+.heroLayout {
+  --hero-image-max-width: min(680px, 54vw);
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  width: 100%;
 }
 
-.titleAnimated {
-  @media (prefers-reduced-motion: no-preference) {
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 0.08em;
-      height: 0.9em;
-      margin-left: 0.06em;
-      vertical-align: -0.06em;
-      background: currentColor;
-      animation: hero-title-cursor-blink 1s step-end infinite;
-    }
+.heroLeft {
+  grid-column: 1;
+  min-width: 0;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitleOverlap {
+  position: relative;
+  z-index: 2;
+  // заезд на картинку на 40% её ширины
+  width: calc(100% + 0.4 * var(--hero-image-max-width));
+  min-width: 0;
+  margin-bottom: 1rem;
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
   }
 }
 
-@keyframes hero-title-cursor-blink {
-  50% {
-    opacity: 0;
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0;
+  line-height: 1.2;
+  min-height: 1.2em;
+  max-width: 100%;
+}
+
+.heroImage {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  max-width: var(--hero-image-max-width);
+  height: auto;
+  justify-self: end;
+  align-self: center;
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .heroLayout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -47,7 +77,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
-  max-width: 36rem;
+  max-width: 100%;
   width: 100%;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: var(--text-secondary);
