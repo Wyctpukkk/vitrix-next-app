@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  SERVER_LOCATIONS,
-  SERVER_LOCATIONS_FOR_MAP,
-} from "@/constants/locations";
+import { SERVER_LOCATIONS } from "@/constants/locations";
 import { useState } from "react";
 import { LocationCard } from "./LocationCard";
 import { LocationsMap } from "./LocationsMap";
@@ -17,7 +14,7 @@ export function LocationsMainRow() {
   return (
     <div className={styles.mainRow}>
       <LocationsMap
-        locations={SERVER_LOCATIONS_FOR_MAP}
+        locations={SERVER_LOCATIONS}
         highlightedLocationId={hoveredLocationId}
       />
       <div className={styles.cardsPanel}>

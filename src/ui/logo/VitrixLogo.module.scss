@@ -1,0 +1,42 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.img {
+  display: block;
+  height: var(--logo-height, 1.75rem);
+  width: auto;
+  max-width: 100%;
+}
+
+.light {
+  display: block;
+}
+
+.dark {
+  display: none;
+}
+
+:global([data-theme="dark"]) {
+  .light {
+    display: none;
+  }
+
+  .dark {
+    display: block;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) {
+    .light {
+      display: none;
+    }
+
+    .dark {
+      display: block;
+    }
+  }
+}

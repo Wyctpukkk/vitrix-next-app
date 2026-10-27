@@ -1,5 +1,6 @@
 import type { ServerLocation } from "@/types/location";
 import styles from "./LocationCard.module.scss";
+import Image from "next/image";
 
 type LocationCardProps = {
   location: ServerLocation;
@@ -13,7 +14,7 @@ export function LocationCard({ location, onHoverChange }: LocationCardProps) {
       onMouseEnter={() => onHoverChange?.(true)}
       onMouseLeave={() => onHoverChange?.(false)}
     >
-      <img
+      <Image
         src={location.flagSrc}
         alt=""
         className={styles.flag}

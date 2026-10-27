@@ -1,33 +1,11 @@
+@use "../../styles/landing-section" as *;
+
 .section {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 3rem 0;
-  scroll-margin-top: 6rem;
+  @include landing-section-centered;
 }
 
 .title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  color: var(--text-primary);
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
-}
-
-.description {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  max-width: 42rem;
-  line-height: 1.6;
+  @include landing-section-title;
 }
 
 .steps {

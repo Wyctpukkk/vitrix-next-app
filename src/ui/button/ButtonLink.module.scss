@@ -7,7 +7,8 @@
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
-  border: 1px solid transparent;
+  border: none;
+  box-sizing: border-box;
   transition:
     box-shadow $transition-smooth,
     border-color $transition-smooth,
@@ -18,17 +19,18 @@
 
 .primary {
   color: #fff;
-  background: linear-gradient(135deg, $color-accent, $color-accent-light);
+  background-color: $color-accent;
+  background-image: linear-gradient(135deg, $color-accent, $color-accent-light);
 
   &:hover {
-    box-shadow: 0 4px 16px rgba(108, 99, 255, 0.35);
+    box-shadow: 0 0 20px 4px rgba($color-accent, 0.38);
   }
 }
 
 .outline {
   color: var(--text-primary);
   background: transparent;
-  border-color: var(--card-border);
+  border: 1px solid var(--button-outline-border);
 
   &:hover {
     border-color: rgba($color-accent, 0.55);

@@ -3,11 +3,6 @@ import type { ConnectionStep } from "@/types/connection";
 
 export const CONNECTION_SECTION_TITLE = "Подключение";
 
-export const CONNECTION_SECTION_SUBTITLE = "Три шага — и всё работает";
-
-export const CONNECTION_SECTION_DESCRIPTION =
-  "Не нужно ничего настраивать вручную. Вы копируете одну ссылку, приложение делает остальное.";
-
 export const CONNECTION_STEPS: readonly ConnectionStep[] = [
   {
     id: "choose-tariff",
@@ -21,24 +16,23 @@ export const CONNECTION_STEPS: readonly ConnectionStep[] = [
     ],
   },
   {
-    id: "copy-link",
-    title: "Скопируйте ссылку",
+    id: "paste-app",
+    title: "Скачайте приложение",
     description: [
       {
         kind: "text",
-        value:
-          "В личном кабинете сразу появится ваша ссылка подписки. Нажмите «Скопировать».",
+        value: "Установите приложение Happ/Incy на ваше устройство",
       },
     ],
   },
   {
-    id: "paste-app",
-    title: "Вставьте в приложение",
+    id: "copy-link",
+    title: "Включите VPN",
     description: [
       {
         kind: "text",
         value:
-          "Установите приложение Happ/Incy на ваше устройство, нажмите «Вставить из буфера» и включите VPN.",
+          "В личном кабинете появится ваша ссылка подписки. Нажмите «Подключить».",
       },
     ],
   },

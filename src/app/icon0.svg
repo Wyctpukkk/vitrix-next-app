@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175" height="175" viewBox="0 0 175 175" fill="none"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><g filter="url(#filter0_i_2418_7893)">
+<path d="M23.1544 52.5372C20.8501 51.2414 18 52.8777 18 55.5162C18 68.114 18 98.2555 18 119.002C18 123.485 20.3277 127.638 24.1513 129.993L80.1341 164.48C82.4371 165.899 85.4074 164.247 85.4074 161.547V150.455C85.4074 149.911 85.2782 149.374 85.0302 148.889L41.3459 63.4268C41.0371 62.8225 40.5563 62.3225 39.9639 61.9894L23.1544 52.5372Z" fill="url(#paint0_radial_2418_7893)"></path>
+<path d="M152.846 52.5372C155.15 51.2414 158 52.8778 158 55.5162C158 68.114 158 98.2555 158 119.002C158 123.485 155.672 127.638 151.849 129.993L95.8658 164.48C93.5628 165.899 90.5926 164.247 90.5926 161.547V150.455C90.5926 149.911 90.7218 149.374 90.9697 148.889L134.654 63.4268C134.963 62.8225 135.444 62.3225 136.036 61.9894L152.846 52.5372Z" fill="url(#paint1_radial_2418_7893)"></path>
+<path d="M83.1244 10.8086C85.111 9.75389 87.4881 9.72964 89.4959 10.7437L150.451 41.5272C152.926 42.7771 152.991 46.2791 150.564 47.6195L90.9782 80.5329C88.884 81.6897 86.3387 81.6835 84.2501 80.5166L25.2504 47.5521C22.8648 46.2192 22.9018 42.782 25.3156 41.5005L83.1244 10.8086Z" fill="url(#paint2_radial_2418_7893)"></path>
+</g><defs>
+<filter id="filter0_i_2418_7893" x="18" y="10" width="140" height="164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+<feOffset dy="9"></feOffset>
+<feGaussianBlur stdDeviation="6"></feGaussianBlur>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"></feComposite>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0828169 0 0 0 0 0.307606 0 0 0 0 0.757183 0 0 0 0.47 0"></feColorMatrix>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_2418_7893"></feBlend>
+</filter>
+<radialGradient id="paint0_radial_2418_7893" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 87.5) rotate(90) scale(99.2037 89.6034)">
+<stop stop-color="#007FFF"></stop>
+<stop offset="1" stop-color="#00C7FF"></stop>
+</radialGradient>
+<radialGradient id="paint1_radial_2418_7893" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 87.5) rotate(90) scale(99.2037 89.6034)">
+<stop stop-color="#007FFF"></stop>
+<stop offset="1" stop-color="#00C7FF"></stop>
+</radialGradient>
+<radialGradient id="paint2_radial_2418_7893" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 87.5) rotate(90) scale(99.2037 89.6034)">
+<stop stop-color="#007FFF"></stop>
+<stop offset="1" stop-color="#00C7FF"></stop>
+</radialGradient>
+</defs></svg>

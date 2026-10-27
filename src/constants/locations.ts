@@ -2,13 +2,6 @@ import type { ServerLocation } from "@/types/location";
 
 export const LOCATIONS_SECTION_TITLE = "Локации";
 
-export const LOCATIONS_SECTION_SUBTITLE = "6 стран на выбор";
-
-export const LOCATIONS_SECTION_DESCRIPTION =
-  "Все серверы доступны в одной подписке. Во многих странах — по несколько серверов на разных протоколах. Переключаться можно в приложении в любой момент.";
-
-export const ANTI_JAMMER_LOCATION_ID = "anti-jammer-lte";
-
 export const SERVER_LOCATIONS: readonly ServerLocation[] = [
   {
     id: "france-paris",
@@ -58,22 +51,4 @@ export const SERVER_LOCATIONS: readonly ServerLocation[] = [
     lat: 55.7558,
     lng: 37.6173,
   },
-  {
-    id: ANTI_JAMMER_LOCATION_ID,
-    country: "Обход БС",
-    city: "для LTE",
-    flagSrc: "/ru.svg",
-    lat: 55.741,
-    lng: 37.84,
-  },
 ];
-
-export const SERVER_LOCATIONS_FOR_MAP = SERVER_LOCATIONS.filter(
-  (location) => location.id !== ANTI_JAMMER_LOCATION_ID,
-);
-
-export const LOCATIONS_ANTI_JAMMER_TITLE =
-  "«Обход БС» — для мобильного интернета с «белыми списками»";
-
-export const LOCATIONS_ANTI_JAMMER_DESCRIPTION =
-  "Когда оператор оставляет доступ только к сайтам из «белого списка», эти серверы помогают снова открыть привычные сервисы.";

@@ -19,13 +19,8 @@
 }
 
 .brand {
-  font-size: 1.25rem;
-  font-weight: 700;
+  --logo-height: 1.375rem;
   margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, $color-accent, $color-accent-light);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .about {

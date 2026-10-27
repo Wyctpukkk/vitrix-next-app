@@ -28,9 +28,16 @@ export function TariffCard({ plan }: TariffCardProps) {
   const priceSubtitle =
     plan.durationLabel ?? `≈ ${formatRub(perMonth)} ₽/мес`;
   const discountPercent = getTariffDiscountPercent(plan);
+  const isHighlighted = Boolean(plan.highlightLabel);
+  const cardClassName = [styles.card, isHighlighted && styles.cardHighlighted]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <article className={styles.card}>
+    <article className={cardClassName}>
+      {plan.highlightLabel ? (
+        <span className={styles.highlightBadge}>{plan.highlightLabel}</span>
+      ) : null}
       <div className={styles.nameRow}>
         <h3 className={styles.name}>{plan.name}</h3>
         {discountPercent !== null ? (

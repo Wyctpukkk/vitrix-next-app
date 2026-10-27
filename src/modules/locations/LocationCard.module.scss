@@ -23,6 +23,10 @@
       0 0 0 1px rgba($color-accent, 0.25);
     transform: translateY(-2px);
   }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 1rem 1rem;
+  }
 }
 
 .flag {

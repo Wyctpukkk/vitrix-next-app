@@ -1,6 +1,7 @@
 @use "../../styles/variables" as *;
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -23,6 +24,37 @@
       0 0 0 1px rgba($color-accent, 0.25);
     transform: translateY(-2px);
   }
+}
+
+.cardHighlighted {
+  border-color: rgba($color-accent, 0.55);
+  box-shadow:
+    0 4px 24px var(--card-shadow),
+    0 0 0 1px rgba($color-accent, 0.22);
+
+  &:hover {
+    border-color: rgba($color-accent, 0.75);
+    box-shadow:
+      0 8px 32px var(--card-shadow-hover),
+      0 0 0 1px rgba($color-accent, 0.35);
+  }
+}
+
+.highlightBadge {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  z-index: 1;
+  transform: translateY(-50%);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(135deg, $color-accent, $color-accent-light);
+  box-shadow: 0 0 0 2px var(--bg-primary);
 }
 
 .nameRow {
@@ -64,12 +96,13 @@
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 800;
   letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .priceCurrency {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: $color-accent;
 }
 
 .perMonth {

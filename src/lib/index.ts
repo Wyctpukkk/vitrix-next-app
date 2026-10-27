@@ -5,4 +5,8 @@ export {
   toggleTheme,
   type Theme,
 } from "./theme";
+export {
+  handleInPageSectionClick,
+  sectionLinkHref,
+} from "./sectionNavigation";
 export { scrollToSection } from "./scrollToSection";

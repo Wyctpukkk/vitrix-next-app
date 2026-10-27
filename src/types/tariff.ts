@@ -7,4 +7,6 @@ export type TariffPlan = {
   durationLabel?: string;
   /** Список преимуществ; если не задан — общий для платных тарифов. */
   features?: readonly string[];
+  /** Лейбл на карточке (например, «Популярный») — усиленная рамка и primary-кнопка. */
+  highlightLabel?: string;
 };

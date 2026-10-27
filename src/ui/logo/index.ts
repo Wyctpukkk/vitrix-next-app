@@ -1,0 +1,1 @@
+export { VitrixLogo } from "./VitrixLogo";
